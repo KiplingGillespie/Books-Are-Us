@@ -4,3 +4,20 @@ Tasks for Next week:
   Kipling: Will write the Interface, Create main.
   Bailey: Will write the book clas 
   Bishara: Will write the inventory class
+
+Tuesday 4/4/2017
+
+Work since last Scrum:
+Bailey:Book written
+Bishara: Inventory was sorta written
+Kipling: wrote most of interface that I could.
+
+Issues since last Scrum:
+Bailey: Rockstar
+Bishara: Inventory ended up more complex than we expected. Changes need to be made to how it will be implemented. 
+Kipling: Needed more infor from Inventory to finish interface. 
+
+Tasks for Next week:
+Bailey:Display
+Bishara:Implement AddBook and AddNewBook
+Kipling:Finish Interface, write makefile, upload wanted feature
