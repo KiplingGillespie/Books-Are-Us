@@ -3,11 +3,18 @@
 #def _INVENTORY_H_
 #indef _INVENTORY_H_
 
+
 #include <inventory.h>
+#include <book.h>
+
+#include <vector>
 
 class inventory{
-    //List:Vector(Book)?
+    
     private:
+        //vector reffering to the class Book from book.h
+        vector<Book> list;
+    
         //any variables needed
         
     public:
@@ -16,15 +23,12 @@ class inventory{
         //deconstructor
         ~inventory();
     
-        //the parameter "Book" is temporary
-        void addBook(Book);
-        void removeBook(Book);
+        bool addBook(book obj);
+        void orderBook(string title);
+        void sellStock(string title);
         void lowOnHandAlert();
         void display();
-    
-        //should I add this?
-        //void outOfStock();
-    
+
     };
 
 #endif
