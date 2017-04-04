@@ -1,24 +1,31 @@
 //inventory.cpp
 
-#include <inventory.h>
+#include <invetory.h>
+#include <book.h>
+
+//#include <vector>
 
 //constructor
 inventory::inventory(){}
 //deconstructor
 inventory::~inventory(){}
 
-void inventory::addBook(Book){
+bool inventory::addBook(book obj){
     //PRE: none
-    //POST: the book added must also be added to the list of books available
+    //POST: a book will be added to the list of books available
     }
 
-void inventory::remove(Book){
+void inventory::orderBook(string title){
+    //PRE: none
+    //POST: the list size will be incremented and a new book will be in stock
+    }
+
+void inventory::sellStock(string title){
     //PRE: the book must be available and not out of stock
     //POST: the book removed must also be removed from the list of books available
+    
     }
 
-//should i call this method something else?
-//or add another method for the books that are out of stock?
 void inventory::lowOnHandAlert(){
     //PRE: the user selects a book that is either running low
     //POST: none
