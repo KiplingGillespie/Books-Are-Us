@@ -11,8 +11,8 @@ inventory::inventory(){}
 inventory::~inventory(){}
 
 bool inventory::addBook(book obj){
-    //PRE: none
-    //POST: a book will be added to the list of books available
+    //PRE: the stock must not be full
+    //POST: a book will be added to the current stock
     }
 
 void inventory::orderBook(string title){
@@ -27,9 +27,9 @@ void inventory::sellStock(string title){
     }
 
 void inventory::lowOnHandAlert(){
-    //PRE: the user selects a book that is either running low
+    //PRE: the stock must not be full
     //POST: none
-    //prompt the user there arent any books available at the time
+    //this will prompt the user there aren't enough books
     }
 
 //not exactly sure what to display
