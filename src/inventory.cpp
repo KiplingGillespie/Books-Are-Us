@@ -1,6 +1,6 @@
 //inventory.cpp
 
-#include <invetory.h>
+#include <inventory.h>
 #include <book.h>
 
 //#include <vector>
