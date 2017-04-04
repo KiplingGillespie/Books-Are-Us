@@ -1,4 +1,4 @@
-#include <invetory.h>
+#include <inventory.h>
 
 //constructor
 inventory::inventory(){}
