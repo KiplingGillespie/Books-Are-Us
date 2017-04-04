@@ -1,6 +1,5 @@
 #include <invetory.h>
 
-//not sure about having (de)constructors
 //constructor
 inventory::inventory(){}
 //deconstructor
