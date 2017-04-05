@@ -1,0 +1,12 @@
+* Number of stars suggests difficulty*
+
+TODO:
+*** File input/output - use file input and output to save current inventory list and load a saved list from file. Have Inventory load books from a file in the constructor. 
+*** Scroll through inventory display - using key inputs scroll up and down through the displayed inventory if it is printed off the size of the screen. 
+
+** Get codebase into a complilable format.
+
+* Sort invintory by alphabetical order.
+
+DONE:
+create makefile
