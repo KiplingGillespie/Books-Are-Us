@@ -20,7 +20,7 @@ void InvInterface::Run(){
 	bool done;
 	
 	// Menu Choice
-	int choice;
+	MenuOption choice;
 	
 	// Intialize main loop
 	done = false;
@@ -34,16 +34,17 @@ void InvInterface::Run(){
 		switch(choice){
 			//User has chosen to display book inventory
 			case MenuOption::View:
+					ViewInventory();
 				break;
 				
 			// User has chosen to sell books in inventory
 			case MenuOption::Sell:
-			
+					SellBook();
 				break;
 				
 			// User has chosen to order more books
 			case MenuOption::Order:
-			
+					OrderBook();
 				break;
 				
 			// user has chosen to exit program.
@@ -123,7 +124,6 @@ void InvInterface::SellBook(){
 	
 	// remove the book from inventory.
 	books.RemoveBook(title);
-	
 	}
 	
 void InvInterace::OrderBook(){
