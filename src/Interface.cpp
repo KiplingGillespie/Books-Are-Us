@@ -28,6 +28,7 @@ void InvInterface::Run(){
 	while(!done){
 		
 		// Get user input for menu.
+		DisplayMenu();
 		choice = GetMenuChoice();
 		
 		// take action with user input. 
@@ -44,7 +45,10 @@ void InvInterface::Run(){
 				
 			// User has chosen to order more books
 			case MenuOption::Order:
-					OrderBook();
+					if(OrderBook())
+						cout << "The requested books have been ordered." << endl;
+					else
+						cout << "The requested book was not found in the system." << endl;
 				break;
 				
 			// user has chosen to exit program.
@@ -54,6 +58,16 @@ void InvInterface::Run(){
 			
 			}
 		}
+	}
+void InvInterface::DisplayMenu(){
+	//PRE:	The N.O. is valid
+	//POST:	The N.O. is unchanged and menu text is displayed.
+	cout << "Menu:" << endl;
+	cout << MenuOption.View << ". View Inventory" << endl;
+	cout << MenuOption.Sell << ". Sell Book" << endl;
+	cout << MenuOption.Order << ". Order Book" << endl;
+	cout << MenuOption.Exit << ". Exit" << endl;
+	
 	}
 	
 int InvInterface::GetMenuChoice(){

@@ -2,6 +2,7 @@
 #define _INVINTERFACE_H_
 
 #include <Inventory.h>
+#include <string>
 
 class InvInterface{
 	private:
@@ -22,6 +23,8 @@ class InvInterface{
 		
 		//
 		void Run();
+		
+		void DisplayMenu();
 		int GetMenuChoice();
 		
 		string GetTitle();
@@ -29,7 +32,7 @@ class InvInterface{
 		// User actions
 		void ViewInventory();
 		void SellBook(string title);
-		void OrderBook(string title);
+		bool OrderBook(string title);
 		
 };
 
