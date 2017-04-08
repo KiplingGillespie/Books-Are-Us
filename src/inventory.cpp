@@ -1,7 +1,7 @@
 //inventory.cpp
 
 #include <inventory.h>
-#include <book.h>
+#include "book.h"
 
 //#include <vector>
 
@@ -15,9 +15,19 @@ bool inventory::addBook(book obj){
     //POST: a book will be added to the current stock
     }
 
-void inventory::orderBook(string title){
+bool inventory::orderBook(string title){
     //PRE: none
     //POST: the list size will be incremented and a new book will be in stock
+	bool found = false;
+	while(!found){
+		// Check if title is the same as that of the current book.
+		if(title.compare(list[i]) == 0){
+			found = true;
+			
+			list[i].setStock(list[i].getMaxStock());
+			}
+		}
+	return found;
     }
 
 void inventory::sellStock(string title){
