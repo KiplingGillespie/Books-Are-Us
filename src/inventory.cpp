@@ -42,7 +42,6 @@ bool inventory::orderBook(string title){
     return found;
     }
 
-//similar to "checking out a book", not removing current book
 void inventory::sellStock(string title){
     //PRE: the book must be available and not out of stock
     //POST: decreasing the stock of the book by 1
