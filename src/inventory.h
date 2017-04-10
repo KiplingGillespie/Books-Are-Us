@@ -1,7 +1,7 @@
 //inventory.h
 
-#def _INVENTORY_H_
-#indef _INVENTORY_H_
+#ifndef _INVENTORY_H_
+#define _INVENTORY_H_
 
 
 #include <inventory.h>
