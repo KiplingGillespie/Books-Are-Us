@@ -2,10 +2,8 @@
 #ifndef _INVENTORY_H_
 #define _INVENTORY_H_
 
-
 #include "inventory.h"
 #include "book.h"
-
 #include <vector>
 
 class inventory{
