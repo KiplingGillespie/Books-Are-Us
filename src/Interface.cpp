@@ -101,7 +101,7 @@ int InvInterface::GetMenuChoice(){
 	return input;
 	}
 	
-string GetTitle(){
+string InvInterface::GetTitle(){
 	// This is a helper function that returns a string for a book title. 
 	//PRE:	None
 	//POST:	None
@@ -116,6 +116,37 @@ string GetTitle(){
 	
 	return title;
 	}
+
+long long InvInterface::InputISBN(){
+	bool inputGood;
+	string s_ISBN;
+	
+	do{
+		cout << "Enter a 10 digit ISBN:"
+		getline(cin, s_ISBN);
+	
+		inputGood = true;
+	
+		// set inputGood to false and clean up cin if it is bad.
+		if(!cin.good()){
+			inputGood = false;
+			cin.clear();
+			cin.ignore(80, '\n');
+		}
+	
+		if(s_ISBN.size() != 10)
+			inputGood = false;
+		else
+			// Check for non digit characters
+			for(int i = 0; i < s_ISBN.size(); i++)
+				if(s_iSBN[i] < 48 || s_ISBN[i] > 57)
+					inputGood = false;
+	
+	}while(!inputGood);
+	
+	// convert string to a long long and return;
+	return stoll(s_ISBN);
+}
 	
 void InvInterface::ViewInventory(){
 	//PRE:	The N.O. InvInterface is valid
@@ -132,6 +163,7 @@ void InvInterface::SellBook(){
 	string title;
 	
 	// Get a title
+	cout << "Enter Title:";
 	title = GetTitle();
 	
 	// remove the book from inventory.
@@ -170,13 +202,33 @@ void InvInterace::OrderBook(){
 		else{
 			int minStock = 5;
 			int maxStock = 20;
+			int price;
+			long long ISBN;
 			Book *obj = new Book();
+			
+			// Enter Title
 			obj.setName(title);
+			
+			// Enter Publisher
 			cout << "Enter the name of the Publisher.";
 			obj.setPublisher(getTitle());
-			cout << "Enter the ISBN number";
+			
+			// Enter ISBN
+			ISBN = InputISBN();
 			obj.setISBN();
-			obj.setPrice();
+			
+			// Enter Price
+			//TODO: change price to a float and check for extra floating point
+			cout << "Enter Price:";
+			cin >> price;
+			while(!cin.good()){
+				cin.clear();
+				cin.ignore(80, '\n');
+				
+				cin >> price;
+			}
+			obj.setPrice(price);
+			
 			obj.setStock(maxStock);
 			obj.setMinStock(minStock());
 			obj.setMaxStock(maxStock();
