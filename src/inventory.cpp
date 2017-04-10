@@ -10,24 +10,31 @@ inventory::inventory(){}
 //deconstructor
 inventory::~inventory(){}
 
-bool inventory::addBook(book obj){
-    //PRE: the stock must not be full
-    //POST: a book will be added to the current stock
+bool inventory::TitleCompare(book i, book j){
+    return (i.getName() > j.getName());
+    }
+
+void inventory::addBook(book obj){
+    //PRE: none
+    //POST: a book will be added to the list of books
+    books.push_back(obj);
+    //sort the list using the std sort
+    std::sort(books.begin(), books.end(), TitleCompare());
     }
 
 bool inventory::orderBook(string title){
     //PRE: none
     //POST: the list size will be incremented and a new book will be in stock
-	bool found = false;
-	while(!found){
-		// Check if title is the same as that of the current book.
-		if(title.compare(list[i]) == 0){
-			found = true;
-			
-			list[i].setStock(list[i].getMaxStock());
-			}
-		}
-	return found;
+    bool found = false;
+    while(!found){
+        // Check if title is the same as that of the current book.
+        if(title.compare(list[i]) == 0){
+            found = true;
+
+            list[i].setStock(list[i].getMaxStock());
+            }
+        }
+    return found;
     }
 
 void inventory::sellStock(string title){
@@ -36,13 +43,19 @@ void inventory::sellStock(string title){
     
     }
 
-void inventory::lowOnHandAlert(){
+//prompt
+void inventory::lowOnHandAlert(int index){
     //PRE: the stock must not be full
     //POST: none
     //this will prompt the user there aren't enough books
+    stock = list[index].getStock();
+    min = list[index].getMinStock();
+    
+    if(stock < min){
+        cout << list[index].getName() << "Low on stock, please restock." << endl;
+        }
     }
 
-//not exactly sure what to display
 void inventory::display(){
     //PRE:
     //POST:
