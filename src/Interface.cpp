@@ -106,13 +106,11 @@ string GetTitle(){
 	//PRE:	None
 	//POST:	None
 	//Prompt and get input
-	cout << "Enter the title of the book you would like to remove." << enld;
 	getline(cin, title);
 	
 	// Datat validation
 	while(!cin.good()){
-		cout << "Error: Invalid Title" << endl;
-		cout << "Enter the title of the book you would like to remove." << enld;
+		cout << "Error: Invalid Input" << endl;
 		getline(cin, title);
 		}
 	
@@ -148,8 +146,42 @@ void InvInterace::OrderBook(){
 	string title;
 	
 	// Get a title
+	cout << "Enter the title of the book you would like to remove." << enld;
 	title = GetTitle();
 	
 	// remove the book from inventory
-	books.RemoveBook(title);
+	if(!books.orderBook(title)){
+		cout << "Book - \"" << title << "\" was not found in inventory" << endl;
+		cout << "Would you like to add it to inventory?";
+		char input;
+		
+		cout << "Type Y/N:";
+		cin.get(input);
+		while(input != 'Y' && input != "N" && input != 'y' && input != 'n'){
+			cout << "Bad input!" << endl;
+			cin.get(input);
+			}
+		
+		// User chose to not add a new book.
+		if(input == 'N' || iput == 'n'){
+			return;
+		}
+		// User chose to add new book
+		else{
+			int minStock = 5;
+			int maxStock = 20;
+			Book *obj = new Book();
+			obj.setName(title);
+			cout << "Enter the name of the Publisher.";
+			obj.setPublisher(getTitle());
+			cout << "Enter the ISBN number";
+			obj.setISBN();
+			obj.setPrice();
+			obj.setStock(maxStock);
+			obj.setMinStock(minStock());
+			obj.setMaxStock(maxStock();
+			
+			if(books.addBook(obj))
+			}
+		}
 	}
