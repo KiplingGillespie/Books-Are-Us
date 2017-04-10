@@ -4,8 +4,8 @@
 #define _INVENTORY_H_
 
 
-#include <inventory.h>
-#include <book.h>
+#include "inventory.h"
+#include "book.h"
 
 #include <vector>
 
@@ -23,7 +23,7 @@ class inventory{
         //deconstructor
         ~inventory();
     
-        bool inventory::TitleCompare(book i, book j)
+        bool TitleCompare(book i, book j)
         void addBook(book obj);
         bool orderBook(string title);
         void sellStock(string title);
