@@ -45,9 +45,24 @@ bool inventory::orderBook(string title){
 void inventory::sellStock(string title){
     //PRE: the book must be available and not out of stock
     //POST: decreasing the stock of the book by 1
-    
-    //call the lowOnHandAlert after decrementing the stock of the book
-    }
+    bool found = false;
+	while(!found){
+		//check if the book titles are the same
+		if(title.compare(list[i]) == 0){
+			found = true;
+			
+			//only sell if we have it
+			if(list[i].getStock() > 0){
+				list[i].setStock(list[i].getStock() - 1);
+                
+                //check if our stock of that book is low
+                lowOnHandAlert();
+                }
+			else
+				cout << title << " is out of stock." << endl;
+            }
+		}
+	}
 
 //prompt
 void inventory::lowOnHandAlert(int index){
