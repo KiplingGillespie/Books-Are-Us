@@ -23,8 +23,9 @@ class inventory{
         //deconstructor
         ~inventory();
     
-        bool addBook(book obj);
-        void orderBook(string title);
+        bool inventory::TitleCompare(book i, book j)
+        void addBook(book obj);
+        bool orderBook(string title);
         void sellStock(string title);
         void lowOnHandAlert();
         void display();
