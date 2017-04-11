@@ -4,6 +4,7 @@
 #include "book.h"
 //needed for the std::sort to work here
 #include <algorithm>
+#include <iostream>
 
 //#include <vector>
 
@@ -55,13 +56,12 @@ void inventory::sellStock(string title){
 			if(list[i].getStock() > 0){
 				list[i].setStock(list[i].getStock() - 1);
                 
-                //check if our stock of that book is low
-                lowOnHandAlert();
-                }
-			else
-				cout << title << " is out of stock." << endl;
-            }
-		}
+                	//check if our stock of that book is low
+                	lowOnHandAlert();
+                	}
+		else
+			cout << title << " is out of stock." << endl;
+           	}
 	}
 
 //prompt
