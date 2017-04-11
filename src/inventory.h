@@ -1,12 +1,9 @@
 //inventory.h
-
 #ifndef _INVENTORY_H_
 #define _INVENTORY_H_
 
-
-#include <inventory.h>
-#include <book.h>
-
+#include "inventory.h"
+#include "book.h"
 #include <vector>
 
 class inventory{
@@ -23,8 +20,9 @@ class inventory{
         //deconstructor
         ~inventory();
     
-        bool addBook(book obj);
-        void orderBook(string title);
+        bool TitleCompare(book i, book j)
+        void addBook(book obj);
+        bool orderBook(string title);
         void sellStock(string title);
         void lowOnHandAlert();
         void display();
