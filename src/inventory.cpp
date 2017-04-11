@@ -85,6 +85,6 @@ void inventory::Display(){
 		<< setw(10) << "Stock" << endl;
 		//display the inventory
 		for(int i = 0; i < list.size(); i++){
-				cout << list.Title << list.ISBN << list.Publisher << list.Stock;
+				cout << list.getName() << list.getISBN() << list.getPublisher() << list.getStock;
 		}
     }
