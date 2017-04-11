@@ -25,7 +25,7 @@ class inventory{
         bool orderBook(string title);
         void sellStock(string title);
         void lowOnHandAlert();
-        void display();
+        void Display();
 
     };
 
