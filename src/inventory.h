@@ -25,7 +25,6 @@ class inventory{
         void SellStock(string title);
         void lowOnHandAlert(int position);
         void display();
-
     };
 
 #endif

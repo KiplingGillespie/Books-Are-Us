@@ -1,6 +1,7 @@
 //inventory.cpp
 
 #include "inventory.h"
+
 //needed for the std::sort to work here
 #include <algorithm>
 #include <iostream>
@@ -49,6 +50,7 @@ void inventory::SellStock(string title){
     //PRE: the book must be available and not out of stock
     //POST: decreasing the stock of the book by 1
     bool found = false;
+
 	int i = 0;
 	int size = list.size();
 	while(!found && i < size){
@@ -74,6 +76,7 @@ void inventory::lowOnHandAlert(int index){
     //PRE: the stock must not be full
     //POST: none
     //this will prompt the user there aren't enough books
+
     int stock = list[index]->getStock();
     int min = list[index]->getMinStock();
 
@@ -94,5 +97,5 @@ void inventory::display(){
 		cout << list[i]->getName() << list[i]->getISBN();
 		cout << list[i]->getPublisher() << list[i]->getStock();
 		cout << endl;
-		}
+       }
     }
