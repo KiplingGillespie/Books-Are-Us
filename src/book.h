@@ -1,10 +1,15 @@
 //book.h
-#include <Book.h>
+#ifndef _BOOK_H_
+#define _BOOK_H_
+
+#include <string>
+using namespace std;
+
 class Book {
 	private:
 		string name;
 		string publisher;
-		int ISBN;
+		long long ISBN;
 		int price;
 		int stock;
 		int minStock;
@@ -19,7 +24,7 @@ class Book {
 		//accessors 
 		string getName();
 		string getPublisher();
-		int getISBN();
+		long long getISBN();
 		int getPrice();
 		int getStock();
 		int getMinStock();
@@ -28,9 +33,11 @@ class Book {
 		//mutators
 		void setName(string);
 		void setPublisher(string);
-		void setISBN(int);
+		void setISBN(long long);
 		void setPrice(int);
 		void setStock(int);
 		void setMinStock(int);
 		void setMaxStock(int);
 };
+
+#endif

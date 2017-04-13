@@ -1,19 +1,19 @@
 #include <iostream>
-#include <Interface.h>
+#include "Interface.h"
 
 using namespace std;
 
-void main(){
-	
+int main(){
+
 	// Initailize
-	InvInterface program = new InvInterface();
-	
-	// Run 
-	program.Run();
-	
+	InvInterface *program = new InvInterface();
+
+	// Run
+	program->Run();
+
 	// Clearn up
 	delete program;
-	
+
 	// Exit
-	return;
+	return 0;
 }

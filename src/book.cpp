@@ -1,11 +1,11 @@
-#include <Book.h>
+#include "book.h"
 
 //Constructor
-void Book::Book(){
+Book::Book(){
 }
 
 //Destructor
-void Book::~Book() {
+Book::~Book() {
 }
 
 //PRE: The N.O. Book is valid
@@ -28,7 +28,7 @@ int Book::getPrice() {
 
 //PRE: The N.O. Book is valid
 //POST: ISBN is returned
-int Book::getISBN(){
+long long Book::getISBN(){
 	return ISBN;
 }
 
@@ -56,8 +56,8 @@ void Book::setName(string bookName){
 void Book::setPublisher(string bookPublisher){
 	bookPublisher = publisher;
 }
-void Book::setISBN(int bookISBN) {
-	bookISBN = ISBN;
+void Book::setISBN(long long bookISBN) {
+	ISBN = bookISBN;
 }
 void Book::setPrice(int bookPrice) {
 		bookPrice = price;

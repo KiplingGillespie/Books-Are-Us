@@ -2,7 +2,6 @@
 #ifndef _INVENTORY_H_
 #define _INVENTORY_H_
 
-#include "inventory.h"
 #include "book.h"
 #include <vector>
 
@@ -10,7 +9,7 @@ class inventory{
     
     private:
         //vector reffering to the class Book from book.h
-        vector<Book> list;
+        std::vector<Book*> list;
     
         //any variables needed
         
@@ -20,13 +19,12 @@ class inventory{
         //deconstructor
         ~inventory();
     
-        bool TitleCompare(book i, book j)
-        void addBook(book obj);
-        bool orderBook(string title);
-        void sellStock(string title);
-        void lowOnHandAlert();
-        void Display();
-
+        bool TitleCompare(Book &i, Book &j);
+        void AddBook(Book *obj);
+        bool OrderBook(string title);
+        void SellStock(string title);
+        void lowOnHandAlert(int position);
+        void display();
     };
 
 #endif
