@@ -10,7 +10,7 @@ Book::~Book() {
 
 //PRE: The N.O. Book is valid
 //POST: The private data member name is returned
-string Book::getName() {
+string Book::getName() const {
 	return name;
 }
 
@@ -51,23 +51,23 @@ int Book::getMaxStock() {
 }
 // Mutators
 void Book::setName(string bookName){
-	bookName = name;
+	name = bookName;
 }
 void Book::setPublisher(string bookPublisher){
-	bookPublisher = publisher;
+	publisher = bookPublisher;
 }
 void Book::setISBN(long long bookISBN) {
 	ISBN = bookISBN;
 }
 void Book::setPrice(int bookPrice) {
-		bookPrice = price;
+	price = bookPrice;
 }
 void Book::setStock(int bookStock){
-	bookStock = stock;
+	stock = bookStock;
 }
 void Book::setMinStock(int min){
-		min = minStock;
+	minStock = min;
 }
 void Book::setMaxStock(int max){
-	max = maxStock;
+	maxStock = max;
 }

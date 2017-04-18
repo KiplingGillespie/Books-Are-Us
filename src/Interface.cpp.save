@@ -30,7 +30,7 @@ void InvInterface::Run(){
 		DisplayMenu();
 		choice = (MenuOption)GetMenuChoice();
 
-		// take action with user input. 
+		// take action with user input.
 		switch(choice){
 			//User has chosen to display book inventory
 			case MenuOption::View:
@@ -245,12 +245,6 @@ void InvInterface::OrderBook(){
 			obj->setStock(maxStock);
 			obj->setMinStock(minStock);
 			obj->setMaxStock(maxStock);
-
-			//TODO: remove after testing
-			cout << obj->getName() << endl;
-			cout << obj->getPublisher() << endl;
-			cout << obj->getISBN() << endl;
-			cout << obj->getPrice() << endl;
 
 			books.AddBook(obj);
 			}

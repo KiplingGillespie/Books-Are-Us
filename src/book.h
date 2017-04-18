@@ -22,7 +22,7 @@ class Book {
 		~Book();
 		
 		//accessors 
-		string getName();
+		string getName() const;
 		string getPublisher();
 		long long getISBN();
 		int getPrice();
@@ -38,6 +38,10 @@ class Book {
 		void setStock(int);
 		void setMinStock(int);
 		void setMaxStock(int);
+
+		// operators
+		bool operator>(const Book &obj){return name > obj.getName(); }
+		bool operator<(const Book &obj){return name < obj.getName(); }
 };
 
 #endif
