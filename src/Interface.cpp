@@ -148,7 +148,7 @@ long long InvInterface::InputISBN(){
 
 	}while(!inputGood);
 
-	s_ISBN.erase(s_ISBN.length()-1);
+	s_ISBN.erase(s_ISBN.length());
 
 	// convert string to a long long and return;
 	return std::stoll(s_ISBN);
