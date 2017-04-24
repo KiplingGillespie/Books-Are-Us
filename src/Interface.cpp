@@ -10,6 +10,7 @@ InvInterface::InvInterface(){
 // Destructor
 InvInterface::~InvInterface(){
 	//TODO: See comment about the constructor
+	cout << "Interface destructor" << endl;
 	}
 
 void InvInterface::Run(){
@@ -74,13 +75,13 @@ int InvInterface::GetMenuChoice(){
 	//POST:	This method will get user input and return
 	//		an integer.
 	int input;
-	
+
 	// Promp Input
 	cout << "Enter Menu Option" << endl;
-	
+
 	// Get input
 	cin >> input;
-	
+
 	// Data validation
 	while(!cin.good() || input < 1 || input > numMenuOptions){
 		// Clear flags and buffers
@@ -231,7 +232,6 @@ void InvInterface::OrderBook(){
 			obj->setISBN(ISBN);
 
 			// Enter Price
-			//TODO: change price to a float and check for extra floating point
 			cout << "Enter Price:";
 			cin >> price;
 			while(!cin.good()){
@@ -240,18 +240,13 @@ void InvInterface::OrderBook(){
 
 				cin >> price;
 			}
-			obj->setPrice(price);
 
+			obj->setPrice(price);
 			obj->setStock(maxStock);
 			obj->setMinStock(minStock);
 			obj->setMaxStock(maxStock);
 
-			//TODO: remove after testing
-			cout << obj->getName() << endl;
-			cout << obj->getPublisher() << endl;
-			cout << obj->getISBN() << endl;
-			cout << obj->getPrice() << endl;
-
+			// Finally, Add the book to the inventory vector
 			books.AddBook(obj);
 			}
 		}
