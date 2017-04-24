@@ -11,20 +11,20 @@ class inventory{
         //vector reffering to the class Book from book.h
         std::vector<Book*> list;
 
-        //any variables needed
-
     public:
         //consructor
         inventory();
         //deconstructor
         ~inventory();
 
-        //static bool TitleCompare(const Book &i, const Book &j) {return ( i.getName() > j.getName()); }
+	// Menu Actions
 	void AddBook(Book *obj);
         bool OrderBook(string title);
         void SellStock(string title);
         void lowOnHandAlert(int position);
         void display();
     };
+
+bool TitleCompare(const Book *i, const Book *j);
 
 #endif
