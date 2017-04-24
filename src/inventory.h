@@ -2,6 +2,8 @@
 #ifndef _INVENTORY_H_
 #define _INVENTORY_H_
 
+#define _FILENAME_ "Inventory.bin"
+
 #include "book.h"
 #include <vector>
 

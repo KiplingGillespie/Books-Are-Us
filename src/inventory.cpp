@@ -6,6 +6,7 @@
 #include <algorithm>
 #include <iostream>
 #include <iomanip>
+#include <fstream>
 
 using namespace std;
 
@@ -15,20 +16,71 @@ inventory::inventory(){}
 
 //deconstructor
 inventory::~inventory(){
+	cout << "Inventory Destructor start" << endl;
+
+	// Save out file information
+	ofstream of(_FILENAME_);
+	// TODO: Replace with better error checking.
+	if( of.is_open() ){
+		cout << "File" << _FILENAME_ << " is open." << endl;
+
+		// write out the number of books we need to save.
+		int listSize = list.size();
+		of.write( reinterpret_cast<const char*>(&listSize), sizeof(listSize) );
+
+		int nameLen;
+		int pubLen;
+		string name;
+		string pub;
+		long long isbn;
+		int price;
+		int Stock;
+		int minStock;
+		int maxStock;
+
+		// Write out each book in the inventory
+		for(int i = 0; i < listSize; i ++){
+			cout << "Book " << i << endl;
+			name = list[i]->getName();
+			nameLen = name.size();
+			pub = list[i]->getPublisher();
+			pubLen = pub.size();
+
+			of.write(reinterpret_cast<const char*>(&nameLen), sizeof(nameLen));
+			of.write(name.c_str(), nameLen);
+			of.write(reinterpret_cast<const char*>(&pubLen), sizeof(pubLen));
+			of.write(pub.c_str(), pubLen);
+
+			isbn = list[i]->getISBN();
+			price = list[i]->getPrice();
+			Stock = list[i]->getStock();
+			minStock = list[i]->getMinStock();
+			maxStock = list[i]->getMaxStock();
+			of.write(reinterpret_cast<const char*>(&isbn), sizeof(long long));
+			of.write(reinterpret_cast<const char*>(&price), sizeof(int));
+			of.write(reinterpret_cast<const char*>(&Stock), sizeof(int));
+			of.write(reinterpret_cast<const char*>(&minStock), sizeof(int));
+			of.write(reinterpret_cast<const char*>(&maxStock), sizeof(int));
+			}
+		}
+
 	//Loop through list and delete each object.
 	for(int i = 0; i < list.size(); i++){
 		// check for valid memory
 		if(list[i])
 			delete list[i];
 		}
+
+		cout << "Inventory Destructor End" << endl;
+		cin.get();
 	}
 
 
 bool TitleCompare(const Book *i, const Book *j){
-    if( i->getName().compare(j->getName() < 0)
+    if( i->getName().compare(j->getName()) < 0)
        return true;
-    else 
-    	return false;   
+    else
+    	return false;
     }
 
 void inventory::AddBook(Book *obj){
