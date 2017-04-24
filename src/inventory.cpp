@@ -24,9 +24,12 @@ inventory::~inventory(){
 	}
 
 
-/*static bool inventory::TitleCompare(const Book &i, const Book &j){
-    return (i.getName() > j.getName());
-    }*/
+bool TitleCompare(const Book *i, const Book *j){
+    if( i->getName().compare(j->getName() < 0)
+       return true;
+    else 
+    	return false;   
+    }
 
 void inventory::AddBook(Book *obj){
 	//PRE: none
@@ -34,7 +37,7 @@ void inventory::AddBook(Book *obj){
 	list.push_back(obj);
 
 	//sort the list using the std sort
-//	std::sort(list.begin(), list.end());
+	std::sort(list.begin(), list.end(), TitleCompare);
 	}
 
 //used to add new books
