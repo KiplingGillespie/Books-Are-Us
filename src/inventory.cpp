@@ -12,7 +12,11 @@ using namespace std;
 
 //may not need these but we'll see
 //constructor
-inventory::inventory(){}
+inventory::inventory(){
+	cout << "Inventory Constructor start" << endl;
+	ifstream _FILENAME_;
+	_FILENAME_.open(books.bin, ios :: in | ios :: binary | ios :: out);
+	}
 
 //deconstructor
 inventory::~inventory(){
