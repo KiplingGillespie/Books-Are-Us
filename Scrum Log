@@ -23,10 +23,10 @@ Bishara:Implement AddBook and AddNewBook
 Kipling:Finish Interface, write makefile, upload wanted feature
 
 Tasks for next week:
-Gillespie ****File Input - ReadInventory
+Bailey ****File Input - ReadInventory
 using ifstream to read files form the ivnentory
 
 Kipling ****File Output - WriteInventory
 useing ofstream to write. 
 
-Display Formatting
+
