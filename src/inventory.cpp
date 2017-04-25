@@ -14,11 +14,22 @@ using namespace std;
 //constructor
 inventory::inventory(){
 	cout << "Inventory Constructor start" << endl;
-	ifstream _FILENAME_;
-	_FILENAME_.open(books.bin, ios :: in | ios :: binary | ios :: out);
+	ifstream _FILENAME_; 
+	_FILENAME_.open("Inventory.bin", ios :: in | ios :: out | ios :: binary); 
+	
+	//Test file upon opening
+	if (_FILENAME_.fail()) 	
+		cout << "This file does not exist" << endl;
+	 // REALLY NOT SURE HERE !! WILL CONSULT
+	// The file opens
+	if(_FILENAME_.good()) {
+		for(int i = 0; i < list.size(); i++) {
+			_FILENAME_.read(reinterperet_cast<char*> (&list[i]), sizeof(list[i]));
+			list.pushback(i);
+		} 
 	}
-
-//deconstructor
+}
+//deconstructor 
 inventory::~inventory(){
 	cout << "Inventory Destructor start" << endl;
 
