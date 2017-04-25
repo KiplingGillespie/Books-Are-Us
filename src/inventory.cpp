@@ -181,7 +181,7 @@ void inventory::SellStock(string title){
 	int size = list.size();
 
 	// Tell user inventory doesn't contain any books.
-	if(size > 1){
+	if(size < 1){
 		cout << "No Books In Inventory." << endl;
 		return;
 		}
