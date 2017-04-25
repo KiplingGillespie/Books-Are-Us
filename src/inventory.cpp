@@ -14,22 +14,66 @@ using namespace std;
 //constructor
 inventory::inventory(){
 	cout << "Inventory Constructor start" << endl;
-	ifstream _FILENAME_; 
-	_FILENAME_.open("Inventory.bin", ios :: in | ios :: out | ios :: binary); 
-	
+	ifstream inputStream(_FILENAME_); 
+	Book * temp;
+	int size;
+	int lenName;
+	int lenPub;
+	string name;
+	string publisher;
+	long long isbn;
+	int price;
+	int stock;
+	int minStock;
+	int maxStock;
+	char * buffer;
+
 	//Test file upon opening
-	if (_FILENAME_.fail()) 	
+	if (inputStream.fail()) 
 		cout << "This file does not exist" << endl;
-	 // REALLY NOT SURE HERE !! WILL CONSULT
+
 	// The file opens
-	if(_FILENAME_.good()) {
-		for(int i = 0; i < list.size(); i++) {
-			_FILENAME_.read(reinterperet_cast<char*> (&list[i]), sizeof(list[i]));
-			list.pushback(i);
-		} 
+	if(inputStream.good()) {
+		inputStream.read(reinterpret_cast<char*>(&size), sizeof(size));
+		for(int i = 0; i < size; i++){
+			temp = new Book();
+
+			//name
+			inputStream.read(reinterpret_cast<char*>(&lenName), sizeof(lenName));
+			buffer = new char [lenName];
+			inputStream.read(buffer, lenName);
+			name = string(buffer);
+			delete[] buffer;
+
+			//publisher
+			inputStream.read(reinterpret_cast<char*>(&lenPub), sizeof(lenPub));
+			buffer = new char [lenPub];
+			inputStream.read(buffer, lenPub);
+			publisher = string(buffer);
+			delete[] buffer;
+
+			// isbn
+			inputStream.read(reinterpret_cast<char*>(&isbn), sizeof(long long));
+			// price
+			inputStream.read(reinterpret_cast<char*>(&price), sizeof(int));
+			//stock
+			inputStream.read(reinterpret_cast<char*>(&stock), sizeof(int));
+			inputStream.read(reinterpret_cast<char*>(&minStock), sizeof(int));
+			inputStream.read(reinterpret_cast<char*>(&maxStock), sizeof(int));
+
+			temp -> setName(name);
+			temp -> setPublisher(publisher);
+			temp -> setISBN(isbn);
+			temp -> setPrice(price);
+			temp -> setStock(stock);
+			temp -> setMinStock(minStock);
+			temp -> setMaxStock(maxStock);
+			AddBook(temp);
+			temp = NULL;
+		}
 	}
 }
-//deconstructor 
+//deconstructor
 inventory::~inventory(){
 	cout << "Inventory Destructor start" << endl;
 
@@ -197,4 +241,4 @@ void inventory::display(){
 		cout << setw(10) << list[i]->getStock();
 		cout << endl;
        }
-    }
+}
