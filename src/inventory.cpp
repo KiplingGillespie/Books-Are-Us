@@ -227,7 +227,7 @@ void inventory::lowOnHandAlert(int index){
 void inventory::display(){
 	//PRE: inventory must be valid
    	//POST: the inventory will be displayed
-	cout << left << setw(20) << "Book Title";
+	cout << left << setw(80) << "Book Title";
 	cout << setw(20) << "ISBN";
 	cout << setw(15) << "Publisher";
 	cout << setw(10) << "Stock";
